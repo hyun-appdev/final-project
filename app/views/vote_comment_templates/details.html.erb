@@ -1,0 +1,54 @@
+<h1>
+  Vote comment #<%= @vote_comment.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/vote_comments">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_vote_comment_form/<%= @vote_comment.id %>">
+      Edit vote comment
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_vote_comment/<%= @vote_comment.id %>">
+      Delete vote comment
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Voter
+  </dt>
+  <dd>
+    <%= @vote_comment.voter_id %>
+  </dd>
+
+  <dt>
+    Comment
+  </dt>
+  <dd>
+    <%= @vote_comment.comment_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@vote_comment.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@vote_comment.updated_at) %> ago
+  </dd>
+</dl>
+

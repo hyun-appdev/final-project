@@ -1,0 +1,59 @@
+<h1>
+  Edit review #<%= @review.id %>
+</h1>
+
+<hr>
+
+<%= render("review_templates/validation_failures.html.erb") %>
+
+<form action="/update_review_record/<%= @review.id %>" method="post">
+  <div>
+    <label for="compensation_id">
+      Compensation
+    </label>
+
+    <input type="text" id="compensation_id" name="compensation_id" value="<%= @review.compensation_id %>">
+  </div>
+
+  <div>
+    <label for="review_content">
+      Review content
+    </label>
+
+    <input type="text" id="review_content" name="review_content" value="<%= @review.review_content %>">
+  </div>
+
+  <div>
+    <label for="product_id">
+      Product
+    </label>
+
+    <input type="text" id="product_id" name="product_id" value="<%= @review.product_id %>">
+  </div>
+
+  <div>
+    <label for="ratings">
+      Ratings
+    </label>
+
+    <input type="text" id="ratings" name="ratings" value="<%= @review.ratings %>">
+  </div>
+
+  <div>
+    <label for="reviewer_id">
+      Reviewer
+    </label>
+
+    <input type="text" id="reviewer_id" name="reviewer_id" value="<%= @review.reviewer_id %>">
+  </div>
+
+  <button>
+    Update review
+  </button>
+</form>
+
+<hr>
+
+<a href="/reviews">
+  Go back
+</a>

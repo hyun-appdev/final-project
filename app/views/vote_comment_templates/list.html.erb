@@ -1,0 +1,66 @@
+<h1>
+  Vote comment list
+</h1>
+
+<a href="/new_vote_comment_form">
+  Add a new vote comment
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Voter
+    </th>
+
+    <th>
+      Comment
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @vote_comments.each do |vote_comment| %>
+  <tr>
+    <td>
+      <%= vote_comment.id %>
+    </td>
+
+    <td>
+      <%= vote_comment.voter_id %>
+    </td>
+
+    <td>
+      <%= vote_comment.comment_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(vote_comment.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(vote_comment.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/vote_comments/<%= vote_comment.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

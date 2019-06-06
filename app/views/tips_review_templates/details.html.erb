@@ -1,0 +1,61 @@
+<h1>
+  Tips review #<%= @tips_review.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/tips_reviews">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_tips_review_form/<%= @tips_review.id %>">
+      Edit tips review
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_tips_review/<%= @tips_review.id %>">
+      Delete tips review
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    User
+  </dt>
+  <dd>
+    <%= @tips_review.user_id %>
+  </dd>
+
+  <dt>
+    Review
+  </dt>
+  <dd>
+    <%= @tips_review.review_id %>
+  </dd>
+
+  <dt>
+    Amount
+  </dt>
+  <dd>
+    <%= @tips_review.amount %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@tips_review.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@tips_review.updated_at) %> ago
+  </dd>
+</dl>
+

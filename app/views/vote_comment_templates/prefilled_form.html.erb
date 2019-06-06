@@ -1,0 +1,35 @@
+<h1>
+  Edit vote comment #<%= @vote_comment.id %>
+</h1>
+
+<hr>
+
+<%= render("vote_comment_templates/validation_failures.html.erb") %>
+
+<form action="/update_vote_comment_record/<%= @vote_comment.id %>" method="post">
+  <div>
+    <label for="voter_id">
+      Voter
+    </label>
+
+    <input type="text" id="voter_id" name="voter_id" value="<%= @vote_comment.voter_id %>">
+  </div>
+
+  <div>
+    <label for="comment_id">
+      Comment
+    </label>
+
+    <input type="text" id="comment_id" name="comment_id" value="<%= @vote_comment.comment_id %>">
+  </div>
+
+  <button>
+    Update vote comment
+  </button>
+</form>
+
+<hr>
+
+<a href="/vote_comments">
+  Go back
+</a>

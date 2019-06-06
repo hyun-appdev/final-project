@@ -1,0 +1,7 @@
+<% if @compensations_by_platform.errors.any? %>
+  <% @compensations_by_platform.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>

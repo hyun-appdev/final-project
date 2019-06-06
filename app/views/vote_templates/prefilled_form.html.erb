@@ -1,0 +1,51 @@
+<h1>
+  Edit vote #<%= @vote.id %>
+</h1>
+
+<hr>
+
+<%= render("vote_templates/validation_failures.html.erb") %>
+
+<form action="/update_vote_record/<%= @vote.id %>" method="post">
+  <div>
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" value="<%= @vote.user_id %>">
+  </div>
+
+  <div>
+    <label for="review_id">
+      Review
+    </label>
+
+    <input type="text" id="review_id" name="review_id" value="<%= @vote.review_id %>">
+  </div>
+
+  <div>
+    <label for="upvote">
+      Upvote
+    </label>
+
+    <input type="text" id="upvote" name="upvote" value="<%= @vote.upvote %>">
+  </div>
+
+  <div>
+    <label for="downvote">
+      Downvote
+    </label>
+
+    <input type="text" id="downvote" name="downvote" value="<%= @vote.downvote %>">
+  </div>
+
+  <button>
+    Update vote
+  </button>
+</form>
+
+<hr>
+
+<a href="/votes">
+  Go back
+</a>

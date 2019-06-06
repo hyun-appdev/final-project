@@ -1,0 +1,43 @@
+<h1>
+  Edit product #<%= @product.id %>
+</h1>
+
+<hr>
+
+<%= render("product_templates/validation_failures.html.erb") %>
+
+<form action="/update_product_record/<%= @product.id %>" method="post">
+  <div>
+    <label for="category">
+      Category
+    </label>
+
+    <input type="text" id="category" name="category" value="<%= @product.category %>">
+  </div>
+
+  <div>
+    <label for="company_id">
+      Company
+    </label>
+
+    <input type="text" id="company_id" name="company_id" value="<%= @product.company_id %>">
+  </div>
+
+  <div>
+    <label for="serial_no">
+      Serial no
+    </label>
+
+    <input type="text" id="serial_no" name="serial_no" value="<%= @product.serial_no %>">
+  </div>
+
+  <button>
+    Update product
+  </button>
+</form>
+
+<hr>
+
+<a href="/products">
+  Go back
+</a>

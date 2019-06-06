@@ -1,0 +1,42 @@
+<h1>Rezen</h1>
+
+<div>
+    <h2>Search</h2>
+</div>
+<div>
+    Sign Up
+    Sign In
+</div>
+<div>
+    <button type ="button" class="btn btn-primary" onclick="/">Write a review</button>
+</div>
+
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Comment</th>
+        <th>Ratings</th>
+        <th>Reviewer</th>
+        <th>Upvote</th>
+    </tr>
+    
+    <% @reviews.each do |review| %>
+    <tr>
+        <td>
+            Product
+        </td>
+        <td>
+            <%= review.review_content %>
+        </td>
+        <td>
+            <%= review.ratings %>
+        </td>
+        <td>
+            <%= review.reviewer_id %> Review ID
+        </td>
+        <td>
+            <%= review.count_votes %> Upvotes
+        </td>
+    </tr>
+    <% end %>
+</table>

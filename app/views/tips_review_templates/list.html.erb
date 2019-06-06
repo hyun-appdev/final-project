@@ -1,0 +1,74 @@
+<h1>
+  Tips review list
+</h1>
+
+<a href="/new_tips_review_form">
+  Add a new tips review
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      User
+    </th>
+
+    <th>
+      Review
+    </th>
+
+    <th>
+      Amount
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @tips_reviews.each do |tips_review| %>
+  <tr>
+    <td>
+      <%= tips_review.id %>
+    </td>
+
+    <td>
+      <%= tips_review.user_id %>
+    </td>
+
+    <td>
+      <%= tips_review.review_id %>
+    </td>
+
+    <td>
+      <%= tips_review.amount %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(tips_review.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(tips_review.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/tips_reviews/<%= tips_review.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

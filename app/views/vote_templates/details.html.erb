@@ -1,0 +1,68 @@
+<h1>
+  Vote #<%= @vote.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/votes">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_vote_form/<%= @vote.id %>">
+      Edit vote
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_vote/<%= @vote.id %>">
+      Delete vote
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    User
+  </dt>
+  <dd>
+    <%= @vote.user_id %>
+  </dd>
+
+  <dt>
+    Review
+  </dt>
+  <dd>
+    <%= @vote.review_id %>
+  </dd>
+
+  <dt>
+    Upvote
+  </dt>
+  <dd>
+    <%= @vote.upvote %>
+  </dd>
+
+  <dt>
+    Downvote
+  </dt>
+  <dd>
+    <%= @vote.downvote %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@vote.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@vote.updated_at) %> ago
+  </dd>
+</dl>
+

@@ -1,0 +1,50 @@
+<h1>
+  Add a new compensations by platform
+</h1>
+
+<hr>
+
+<%= render("compensations_by_platform_templates/validation_failures.html.erb") %>
+
+<form action="/insert_compensations_by_platform_record" method="post">
+  <div>
+    <label for="compensation_amount">
+      Compensation amount
+    </label>
+
+    <input type="text" id="compensation_amount" name="compensation_amount" value="<%= @compensations_by_platform.compensation_amount %>">
+  </div>
+
+  <div>
+    <label for="review_id">
+      Review
+    </label>
+
+    <input type="text" id="review_id" name="review_id" value="<%= @compensations_by_platform.review_id %>">
+  </div>
+
+  <div>
+    <input id="compensated" name="compensated" type="checkbox" <%= "checked" if @compensations_by_platform.compensated %>>
+    <label for="compensated">
+      Compensated
+    </label>
+  </div>
+
+  <div>
+    <label for="notes">
+      Notes
+    </label>
+
+    <textarea id="notes" name="notes"><%= @compensations_by_platform.notes %></textarea>
+  </div>
+
+  <button>
+    Create compensations by platform
+  </button>
+</form>
+
+<hr>
+
+<a href="/compensations_by_platforms">
+  Go back
+</a>

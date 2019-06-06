@@ -1,0 +1,51 @@
+<h1>
+  Edit comment #<%= @comment.id %>
+</h1>
+
+<hr>
+
+<%= render("comment_templates/validation_failures.html.erb") %>
+
+<form action="/update_comment_record/<%= @comment.id %>" method="post">
+  <div>
+    <label for="review_id">
+      Review
+    </label>
+
+    <input type="text" id="review_id" name="review_id" value="<%= @comment.review_id %>">
+  </div>
+
+  <div>
+    <label for="commenter_id">
+      Commenter
+    </label>
+
+    <input type="text" id="commenter_id" name="commenter_id" value="<%= @comment.commenter_id %>">
+  </div>
+
+  <div>
+    <label for="comment">
+      Comment
+    </label>
+
+    <textarea id="comment" name="comment" rows="3"><%= @comment.comment %></textarea>
+  </div>
+
+  <div>
+    <label for="comment_vote">
+      Comment vote
+    </label>
+
+    <input type="text" id="comment_vote" name="comment_vote" value="<%= @comment.comment_vote %>">
+  </div>
+
+  <button>
+    Update comment
+  </button>
+</form>
+
+<hr>
+
+<a href="/comments">
+  Go back
+</a>

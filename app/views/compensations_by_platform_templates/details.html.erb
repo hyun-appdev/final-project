@@ -1,0 +1,68 @@
+<h1>
+  Compensations by platform #<%= @compensations_by_platform.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/compensations_by_platforms">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_compensations_by_platform_form/<%= @compensations_by_platform.id %>">
+      Edit compensations by platform
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_compensations_by_platform/<%= @compensations_by_platform.id %>">
+      Delete compensations by platform
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Compensation amount
+  </dt>
+  <dd>
+    <%= @compensations_by_platform.compensation_amount %>
+  </dd>
+
+  <dt>
+    Review
+  </dt>
+  <dd>
+    <%= @compensations_by_platform.review_id %>
+  </dd>
+
+  <dt>
+    Compensated
+  </dt>
+  <dd>
+    <%= @compensations_by_platform.compensated %>
+  </dd>
+
+  <dt>
+    Notes
+  </dt>
+  <dd>
+    <%= @compensations_by_platform.notes %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@compensations_by_platform.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@compensations_by_platform.updated_at) %> ago
+  </dd>
+</dl>
+

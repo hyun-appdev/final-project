@@ -1,0 +1,43 @@
+<h1>
+  Add a new tips review
+</h1>
+
+<hr>
+
+<%= render("tips_review_templates/validation_failures.html.erb") %>
+
+<form action="/insert_tips_review_record" method="post">
+  <div>
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" value="<%= @tips_review.user_id %>">
+  </div>
+
+  <div>
+    <label for="review_id">
+      Review
+    </label>
+
+    <input type="text" id="review_id" name="review_id" value="<%= @tips_review.review_id %>">
+  </div>
+
+  <div>
+    <label for="amount">
+      Amount
+    </label>
+
+    <input type="text" id="amount" name="amount" value="<%= @tips_review.amount %>">
+  </div>
+
+  <button>
+    Create tips review
+  </button>
+</form>
+
+<hr>
+
+<a href="/tips_reviews">
+  Go back
+</a>
