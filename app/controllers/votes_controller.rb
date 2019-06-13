@@ -17,18 +17,17 @@ class VotesController < ApplicationController
     render("vote_templates/blank_form.html.erb")
   end
 
-  def save_new_info
+  def save_new_info_up
     @vote = Vote.new
 
-    @vote.user_id = params.fetch("user_id")
+    @vote.user_id = 1
     @vote.review_id = params.fetch("review_id")
-    @vote.upvote = params.fetch("upvote")
-    @vote.downvote = params.fetch("downvote")
+    @vote.upvote = 1
+    @vote.downvote = 0
 
     if @vote.valid?
       @vote.save
-
-      redirect_to("/votes", { :notice => "Vote created successfully." })
+      redirect_to("/reviews/"+ @vote.review_id.to_s, { :notice => "Vote created successfully." })
     else
       render("vote_templates/blank_form.html.erb")
     end

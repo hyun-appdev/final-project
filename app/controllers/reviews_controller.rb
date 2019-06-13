@@ -1,26 +1,34 @@
 class ReviewsController < ApplicationController
   def list
     @reviews = Review.all
-
     render("review_templates/list.html.erb")
   end
 
   def details
     @review = Review.where({ :id => params.fetch("id_to_display") }).first
-
+    @vote_record = Vote.where({:review_id => @review.id}).first
+    if @vote_record
+      @upvote = @vote_record.upvote
+      @downvote = @vote_record.downvote
+    else
+      @upvote = 0
+      @downvote = 0
+    end
+    @product_id = @review.product_id
+    @product = Product.where({:id => @product_id}).first
     render("review_templates/details.html.erb")
   end
 
   def blank_form
+    @product_id = params.fetch("product_id")
+    @product = Product.where({:id => @product_id}).first
     @review = Review.new
-
     render("review_templates/blank_form.html.erb")
   end
 
   def save_new_info
     @review = Review.new
-
-    @review.compensation_id = params.fetch("compensation_id")
+    @review.compensation_id = 0
     @review.review_content = params.fetch("review_content")
     @review.product_id = params.fetch("product_id")
     @review.ratings = params.fetch("ratings")
@@ -29,7 +37,7 @@ class ReviewsController < ApplicationController
     if @review.valid?
       @review.save
 
-      redirect_to("/reviews", { :notice => "Review created successfully." })
+      redirect_to("/reviews/" + @review.id.to_s, { :notice => "Review created successfully." })
     else
       render("review_templates/blank_form.html.erb")
     end
@@ -67,7 +75,11 @@ class ReviewsController < ApplicationController
     redirect_to("/reviews", { :notice => "Review deleted successfully." })
   end
   
-  def search_reviews
-    
+  def search_results
+    @q = Product.ransack(params[:q])
+    @products = @q.result(:distinct => true)
+    puts @products
+    @reviews = Review.where({ :id =>})
+    render("review_templates/search_results.html.erb")
   end
 end

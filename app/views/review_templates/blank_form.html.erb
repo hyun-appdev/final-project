@@ -6,15 +6,12 @@
 
 <%= render("review_templates/validation_failures.html.erb") %>
 
+<h2> Product </h2>
+<div> <%= @product.product_name %></div>
+<div> <%= @product.modelname %></div>
+<br>
 <form action="/insert_review_record" method="post">
-  <div>
-    <label for="compensation_id">
-      Compensation
-    </label>
-
-    <input type="text" id="compensation_id" name="compensation_id" value="<%= @review.compensation_id %>">
-  </div>
-
+  
   <div>
     <label for="review_content">
       Review content
@@ -24,27 +21,40 @@
   </div>
 
   <div>
-    <label for="product_id">
-      Product
-    </label>
-
-    <input type="text" id="product_id" name="product_id" value="<%= @review.product_id %>">
+    <input type="hidden" name="product_id" value="<%=@product_id%>">
   </div>
 
   <div>
     <label for="ratings">
-      Ratings
+      Select your rating
     </label>
 
     <input type="text" id="ratings" name="ratings" value="<%= @review.ratings %>">
   </div>
-
+  
+  <br>
+  
   <div>
-    <label for="reviewer_id">
-      Reviewer
-    </label>
+    <%= label_tag(:one_label, "1") %>
+    <%= radio_button_tag(:ratings, "1") %>
+    &nbsp;
+    <%= label_tag(:two_label, "2") %>
+    <%= radio_button_tag(:ratings, "2") %>
+    &nbsp;
+    <%= label_tag(:three_label, "3") %>
+    <%= radio_button_tag(:ratings, "3") %>
+    &nbsp;
+    <%= label_tag(:four_label, "4") %>
+    <%= radio_button_tag(:ratings, "4") %>
+    &nbsp;
+    <%= label_tag(:five_label, "5") %>
+    <%= radio_button_tag(:ratings, "5") %>
+    
+  </div>
 
-    <input type="text" id="reviewer_id" name="reviewer_id" value="<%= @review.reviewer_id %>">
+  
+  <div>
+    <input type="hidden" name="reviewer_id" value="<%=@review.reviewer_id%>">
   </div>
 
   <button>

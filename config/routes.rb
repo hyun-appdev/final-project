@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   # CREATE
   match("/new_vote_form", { :controller => "votes", :action => "blank_form", :via => "get" })
-  match("/insert_vote_record", { :controller => "votes", :action => "save_new_info", :via => "post" })
+  match("/insert_vote_record_up", { :controller => "votes", :action => "save_new_info_up", :via => "get" })
 
   # READ
   match("/votes", { :controller => "votes", :action => "list", :via => "get" })
@@ -119,7 +119,8 @@ Rails.application.routes.draw do
   # Routes for the Review resource:
 
   # CREATE
-  match("/new_review_form", { :controller => "reviews", :action => "blank_form", :via => "get" })
+  match("/new_review_form", { :controller => "products", :action => "select_product", :via => "get" })
+  match("/new_review_form/:product_id", { :controller => "reviews", :action => "blank_form", :via => "get" })
   match("/insert_review_record", { :controller => "reviews", :action => "save_new_info", :via => "post" })
 
   # READ
@@ -134,6 +135,12 @@ Rails.application.routes.draw do
   match("/delete_review/:id_to_remove", { :controller => "reviews", :action => "remove_row", :via => "get" })
 
   #------------------------------
+
+  # Routes for review search restuls:
+  match("/reviews_search", { :controller => "reviews", :action => "search_results", :via => "get"})
+
+  # Routes for selecting a product before writing a review
+  match("/write_selectproduct", { :controller => "products", :action=> "select_product", :via => "get"})
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

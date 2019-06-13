@@ -12,13 +12,9 @@
 #  updated_at      :datetime         not null
 #
 
-#require 'elasticsearch/model'
 
 class Review < ApplicationRecord
-  # Required to be indexed in Elasticsearch
-  #include Elasticsearch::Model
-  #include Elasticsearch::Model::Callbacks
-  
+
   has_many :tips_reviews
   
   has_many :comments

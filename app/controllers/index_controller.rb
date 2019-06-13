@@ -2,11 +2,12 @@
 
 class IndexController < ApplicationController
   def home
-    # Need to change this to order in liked
-    @reviews = Review.all.sort_by(&:count_votes)
-    
+    @q = Product.ransack(params[:q])
+    @reviews = @q.result(:distinct => true).includes(:product)
+    # Need to create column in Review for number of votes
+    #@reviews = Review.all.sort_by(&:count_votes).page(params[:page]).per(10)
+    @reviews = Review.all.page(params[:page]).per(10)
     render("/home.html.erb")
-    
   end
     
   def search

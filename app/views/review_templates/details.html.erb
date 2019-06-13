@@ -22,26 +22,22 @@
   </div>
 </div>
 
+<br>
+
 <dl>
   <dt>
-    Compensation
+    Product
   </dt>
   <dd>
-    <%= @review.compensation_id %>
+    <%= @product.product_name %>
+    <br>
+    <%= @product.modelname %>
   </dd>
-
   <dt>
     Review content
   </dt>
   <dd>
     <%= @review.review_content %>
-  </dd>
-
-  <dt>
-    Product
-  </dt>
-  <dd>
-    <%= @review.product_id %>
   </dd>
 
   <dt>
@@ -71,5 +67,19 @@
   <dd>
     <%= time_ago_in_words(@review.updated_at) %> ago
   </dd>
+  <dd>
+    Upvotes: <%= @upvote %>
+  </dd>
+  <dd>
+    Downvotes: <%= @downvote %>
+  </dd>
+  
+  <dd>
+    <form action="/insert_vote_record_up">
+      <input type="hidden" name="review_id" value="<%=@review.id%>">
+      <button>Upvote</button>
+    </form>
+  </dd>
+  
 </dl>
 

@@ -1,8 +1,12 @@
 class ProductsController < ApplicationController
   def list
     @products = Product.all
-
     render("product_templates/list.html.erb")
+  end
+  
+  def select_product
+    @products = Product.all
+    render("product_templates/select.html.erb")
   end
 
   def details
@@ -23,6 +27,9 @@ class ProductsController < ApplicationController
     @product.category = params.fetch("category")
     @product.company_id = params.fetch("company_id")
     @product.serial_no = params.fetch("serial_no")
+    @product.product_name = params.fetch("product_name")
+    @product.modelname = params.fetch("modelname")
+    @product.model_number = params.fetch("model_number")
 
     if @product.valid?
       @product.save
@@ -61,5 +68,9 @@ class ProductsController < ApplicationController
     @product.destroy
 
     redirect_to("/products", { :notice => "Product deleted successfully." })
+  end
+  
+  def product_search_results
+    
   end
 end
