@@ -10,6 +10,10 @@
 
 <hr>
 
+<h2> Product </h2>
+<div> <%= @product.product_name %></div>
+<div> <%= @product.modelname %></div>
+
 <table>
   <tr>
 
@@ -40,4 +44,39 @@
     <th>
     </th>
   </tr>
+  
+  <% @reviews.each do |review| %>
+  <tr>
+
+    <td>
+      <%= review.review_content %>
+    </td>
+
+    <td>
+      <%= review.product_id %>
+    </td>
+
+    <td>
+      <%= review.ratings %>
+    </td>
+
+    <td>
+      <%= review.reviewer_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(review.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(review.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/reviews/<%= review.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
 </table>

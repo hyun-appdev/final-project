@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   # CREATE
   match("/new_vote_form", { :controller => "votes", :action => "blank_form", :via => "get" })
   match("/insert_vote_record_up", { :controller => "votes", :action => "save_new_info_up", :via => "get" })
+  match("/insert_vote_record_down", { :controller => "votes", :action => "save_new_info_down", :via => "get" })
 
   # READ
   match("/votes", { :controller => "votes", :action => "list", :via => "get" })
@@ -136,8 +137,9 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-  # Routes for review search restuls:
-  match("/reviews_search", { :controller => "reviews", :action => "search_results", :via => "get"})
+  # Routes for search restuls:
+  match("/products_search", { :controller => "products", :action => "search_results", :via => "get"})
+  match("/reviews_search/:product_id", { :controller => "reviews", :action => "search_results", :via => "get"})
 
   # Routes for selecting a product before writing a review
   match("/write_selectproduct", { :controller => "products", :action=> "select_product", :via => "get"})

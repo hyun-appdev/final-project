@@ -6,10 +6,15 @@ class ReviewsController < ApplicationController
 
   def details
     @review = Review.where({ :id => params.fetch("id_to_display") }).first
-    @vote_record = Vote.where({:review_id => @review.id}).first
-    if @vote_record
-      @upvote = @vote_record.upvote
-      @downvote = @vote_record.downvote
+    vote_record = Vote.where({:review_id => @review.id})
+    
+    if vote_record
+      @upvote = 0
+      @downvote = 0
+      vote_record.each do |vote|
+        @upvote = @upvote + vote.upvote
+        @downvote = @downvote + vote.downvote 
+    end
     else
       @upvote = 0
       @downvote = 0
@@ -76,10 +81,8 @@ class ReviewsController < ApplicationController
   end
   
   def search_results
-    @q = Product.ransack(params[:q])
-    @products = @q.result(:distinct => true)
-    puts @products
-    @reviews = Review.where({ :id =>})
+    @product = Product.where({ :id => params.fetch("product_id")}).first
+    @reviews = Review.where({ :product_id => params.fetch("product_id")})
     render("review_templates/search_results.html.erb")
   end
 end

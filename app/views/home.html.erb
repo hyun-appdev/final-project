@@ -2,7 +2,7 @@
 
 <div>
     <h2>Search</h2>
-    <%= search_form_for @q, :url => "/reviews_search" do |f| %>
+    <%= search_form_for @q, :url => "/products_search" do |f| %>
         <p class="lead">Narrow results:</p>
         <div class="form-group">
             <%= f.label :product_product_name_cont %>
@@ -13,10 +13,7 @@
     <% end %>
     
 </div>
-<div>
-    Sign Up
-    Sign In
-</div>
+
 <div>
     
     <a href="/write_selectproduct">Write a review</a>
@@ -27,14 +24,13 @@
         <th>Product</th>
         <th>Comment</th>
         <th>Ratings</th>
-        <th>Reviewer</th>
         <th>Upvote</th>
     </tr>
     
     <% @reviews.each do |review| %>
     <tr>
         <td>
-            <a href="/reviews/<%= review.id %>">Product</a>
+            <%= Product.where( {:id => review.product_id}).first.product_name %>
         </td>
         <td>
             <a href="/reviews/<%= review.id %>"><%= review.review_content %></a>
@@ -43,10 +39,7 @@
             <%= review.ratings %>
         </td>
         <td>
-            <%= review.reviewer_id %> Review ID
-        </td>
-        <td>
-            <%= review.count_votes %> Upvotes
+            <%= review.count_votes %>
         </td>
     </tr>
     <% end %>

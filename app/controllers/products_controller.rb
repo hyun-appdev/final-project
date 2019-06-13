@@ -70,7 +70,9 @@ class ProductsController < ApplicationController
     redirect_to("/products", { :notice => "Product deleted successfully." })
   end
   
-  def product_search_results
-    
+  def search_results
+    @q = Product.ransack(params[:q])
+    @products = @q.result(:distinct => true)
+    render("product_templates/search_results.html.erb")
   end
 end

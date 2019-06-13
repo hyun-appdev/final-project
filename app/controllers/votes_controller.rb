@@ -32,6 +32,22 @@ class VotesController < ApplicationController
       render("vote_templates/blank_form.html.erb")
     end
   end
+  
+  def save_new_info_down
+    @vote = Vote.new
+
+    @vote.user_id = 1
+    @vote.review_id = params.fetch("review_id")
+    @vote.upvote = 0
+    @vote.downvote = 1
+
+    if @vote.valid?
+      @vote.save
+      redirect_to("/reviews/"+ @vote.review_id.to_s, { :notice => "Vote created successfully." })
+    else
+      render("vote_templates/blank_form.html.erb")
+    end
+  end
 
   def prefilled_form
     @vote = Vote.where({ :id => params.fetch("id_to_prefill") }).first
