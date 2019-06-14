@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the Product resource:
+  
+  # CREATE
+  match("/create_product", { :controller => "products", :action => "blank_form", :via => "get" })
 
   # READ
   match("/products", { :controller => "products", :action => "list", :via => "get" })
