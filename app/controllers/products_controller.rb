@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
 
   def save_new_info
     @product = Product.new
-
     @product.category = params.fetch("category")
     @product.company_id = params.fetch("company_id")
     @product.serial_no = params.fetch("serial_no")
