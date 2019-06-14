@@ -1,6 +1,3 @@
-AdminUser.create!([
-  {email: "admin@example.com", encrypted_password: "$2a$11$oaX0I6EOTbuTfyvcLo5E.uQIKhE8BA6Om8Lx/362cYjzCJw9ep5au", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil}
-])
 Vote.create!([
   {user_id: 1, review_id: 1, upvote: 1, downvote: 0},
   {user_id: 1, review_id: 1, upvote: 1, downvote: 0},
