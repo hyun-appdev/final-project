@@ -1,4 +1,12 @@
 class ReviewsController < ApplicationController
+  before_action(:you_must_sign_in, { :only => [:blank_form, :save_new_info, :save_edits, :remove_row]})
+  
+  def you_must_sign_in
+    if current_user == nil
+      redirect_to("/users/sign_in")
+    end
+  end
+  
   def list
     @reviews = Review.all
     render("review_templates/list.html.erb")
@@ -37,7 +45,13 @@ class ReviewsController < ApplicationController
     @review.review_content = params.fetch("review_content")
     @review.product_id = params.fetch("product_id")
     @review.ratings = params.fetch("ratings")
-    @review.reviewer_id = params.fetch("reviewer_id")
+    
+    if current_user
+      @review.reviewer_id = current_user.id   
+    else
+      @review.reviewer_id = 0
+    end
+    
 
     if @review.valid?
       @review.save

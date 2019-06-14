@@ -9,6 +9,7 @@
     </a>
   </div>
 
+  <% if current_user && current_user.id == @review.reviewer_id %>
   <div>
     <a href="/existing_review_form/<%= @review.id %>">
       Edit review
@@ -20,7 +21,9 @@
       Delete review
     </a>
   </div>
+  <% end %>
 </div>
+
 
 <br>
 
@@ -45,13 +48,6 @@
   </dt>
   <dd>
     <%= @review.ratings %>
-  </dd>
-
-  <dt>
-    Reviewer
-  </dt>
-  <dd>
-    <%= @review.reviewer_id %>
   </dd>
 
   <dt>

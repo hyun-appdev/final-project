@@ -102,33 +102,7 @@
           </div>
 
           
-          <!-- Devise Input for reviews start -->
-          <div class="form-group">
-            <% reviews_was_invalid = resource.errors.include?(:reviews) %>
-
-            <% reviews_class = "form-control" %>
-
-            <% if was_validated %>
-              <% if reviews_was_invalid %>
-                <% reviews_class << " is-invalid" %>
-              <% else %>
-                <% reviews_class << " is-valid" %>
-              <% end %>
-            <% end %>
-
-            <%= f.label :reviews %>
-
-            <%= f.number_field :reviews, :class => reviews_class, :placeholder => "Enter reviews" %>
-
-            <% if reviews_was_invalid %>
-              <% resource.errors.full_messages_for(:reviews).each do |message| %>
-                <div class="invalid-feedback d-flex">
-                  <%= message %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-          <!-- Devise Input for reviews end -->
+          
           <%= f.button class: "btn btn-outline-primary btn-block" %>
 
           <hr>
