@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   # CREATE
   match("/create_product", { :controller => "products", :action => "blank_form", :via => "get" })
+  match("/insert_product_record", { :controller => "products", :action => "save_new_info", :via => "get" })
 
   # READ
   match("/products", { :controller => "products", :action => "list", :via => "get" })
