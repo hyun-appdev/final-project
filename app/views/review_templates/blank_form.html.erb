@@ -13,14 +13,6 @@
 <form action="/insert_review_record" method="post">
   
   <div>
-    <label for="review_content">
-      Review content
-    </label>
-
-    <input type="text" id="review_content" name="review_content" value="<%= @review.review_content %>">
-  </div>
-
-  <div>
     <input type="hidden" name="product_id" value="<%=@product_id%>">
   </div>
 
@@ -35,20 +27,26 @@
     <%= label_tag(:one_label, "Very dissatisfied") %>
     <%= radio_button_tag(:ratings, "1") %>
     &nbsp;
-    <%= label_tag(:two_label, "2") %>
+    <%= label_tag(:two_label, "Dissatisfied") %>
     <%= radio_button_tag(:ratings, "2") %>
     &nbsp;
-    <%= label_tag(:three_label, "3") %>
+    <%= label_tag(:three_label, "Neither satisfied nor dissatisfied") %>
     <%= radio_button_tag(:ratings, "3") %>
     &nbsp;
-    <%= label_tag(:four_label, "4") %>
+    <%= label_tag(:four_label, "Satisfied") %>
     <%= radio_button_tag(:ratings, "4") %>
     &nbsp;
-    <%= label_tag(:five_label, "5") %>
-    <%= radio_button_tag(:ratings, "Very satisfied") %>
+    <%= label_tag(:five_label, "Very satisfied") %>
+    <%= radio_button_tag(:ratings, "5") %>
     
   </div>
 
+  <div>
+    <label for="review_content">
+      What do you like or dislike about <%= @product.product_name %>?
+    </label>
+    <input type="text" id="review_content" name="review_content" value="<%= @review.review_content %>" maxlength="500">
+  </div>
 
   <button>
     Create review
