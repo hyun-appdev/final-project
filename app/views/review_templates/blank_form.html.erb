@@ -48,6 +48,10 @@
     <input type="text" id="review_content" name="review_content" value="<%= @review.review_content %>" maxlength="500">
   </div>
 
+  <div>
+    <%=form.text_field , :required=> true %>
+  </div>
+
   <button>
     Create review
   </button>
