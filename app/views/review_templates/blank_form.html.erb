@@ -26,13 +26,13 @@
 
   <div>
     <label for="ratings">
-      Select your rating
+      Overall, are you satisfied or dissatisfied with <%= @product.product_name %>?
     </label>
 
   <br>
   
   <div>
-    <%= label_tag(:one_label, "1") %>
+    <%= label_tag(:one_label, "Very dissatisfied") %>
     <%= radio_button_tag(:ratings, "1") %>
     &nbsp;
     <%= label_tag(:two_label, "2") %>
@@ -45,7 +45,7 @@
     <%= radio_button_tag(:ratings, "4") %>
     &nbsp;
     <%= label_tag(:five_label, "5") %>
-    <%= radio_button_tag(:ratings, "5") %>
+    <%= radio_button_tag(:ratings, "Very satisfied") %>
     
   </div>
 
