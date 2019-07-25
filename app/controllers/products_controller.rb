@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
 
   def blank_form
     @product = Product.new
-
     render("product_templates/blank_form.html.erb")
   end
 

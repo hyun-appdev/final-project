@@ -55,8 +55,9 @@ class ReviewsController < ApplicationController
 
     if @review.valid?
       @review.save
+      render("review_templates/new_review_confirm.html.erb")
 
-      redirect_to("/reviews/" + @review.id.to_s, { :notice => "Review created successfully." })
+      #redirect_to("/reviews/" + @review.id.to_s, { :notice => "Review created successfully." })
     else
       render("review_templates/blank_form.html.erb")
     end
@@ -98,5 +99,9 @@ class ReviewsController < ApplicationController
     @product = Product.where({ :id => params.fetch("product_id")}).first
     @reviews = Review.where({ :product_id => params.fetch("product_id")})
     render("review_templates/search_results.html.erb")
+  end
+  
+  def save_complete
+    render("review_templates/new_review_confirm.html.erb")
   end
 end

@@ -44,12 +44,13 @@
   <div>
     <label for="review_content">
       What do you like or dislike about <%= @product.product_name %>?
+      The response has to be more than 20 words in order to be qualified for compensation.
     </label>
-    <input type="text" id="review_content" name="review_content" value="<%= @review.review_content %>" maxlength="500">
+    <input type="text" id="review_content" name="review_content" value="<%= @review.review_content %>" minlength="200" maxlength="5000">
   </div>
 
   <div>
-    <%=form.text_field , :required=> true %>
+    
   </div>
 
   <button>
