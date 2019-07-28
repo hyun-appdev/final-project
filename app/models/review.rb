@@ -10,6 +10,7 @@
 #  reviewer_id     :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  proof           :string
 #
 
 
@@ -31,5 +32,7 @@ class Review < ApplicationRecord
     votes = Vote.where({ :review_id => self.id})
     return votes.sum(:upvote) - votes.sum(:downvote)
   end
+  
+  mount_uploader :proof, ProofUploader
   
 end

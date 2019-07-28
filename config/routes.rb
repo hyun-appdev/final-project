@@ -62,6 +62,11 @@ Rails.application.routes.draw do
   # Routes for selecting a product before writing a review
   match("/write_selectproduct", { :controller => "products", :action=> "select_product", :via => "get"})
 
+
+  # Routes for admin:
+  match("/admin", { :controller => "admin", :action => "admin_home", :via => "get"})
+  match("/admin_pending_reviews", { :controller => "admin", :action => "pending_reviews", :via => "get"})
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

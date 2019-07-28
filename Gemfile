@@ -18,6 +18,8 @@ gem "uglifier", ">= 1.3.0"
 gem "ransack"
 gem "kaminari"
 gem 'seed_dump'
+gem "carrierwave" #for image upload
+gem "cloudinary" #for image upload
 
 group :production do
   gem "pg"

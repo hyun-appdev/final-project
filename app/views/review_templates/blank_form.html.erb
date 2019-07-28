@@ -10,7 +10,7 @@
 <div> <%= @product.product_name %></div>
 <div> <%= @product.modelname %></div>
 <br>
-<form action="/insert_review_record" method="post">
+<form action="/insert_review_record" method="post" enctype="multipart/form-data">
   
   <div>
     <input type="hidden" name="product_id" value="<%=@product_id%>">
@@ -50,7 +50,7 @@
   </div>
 
   <div>
-    
+    <input type="file" id="proof" name="proof" class="form-control">
   </div>
 
   <button>
