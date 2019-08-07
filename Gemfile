@@ -20,6 +20,13 @@ gem "kaminari"
 gem 'seed_dump'
 gem "carrierwave" #for image upload
 gem "cloudinary" #for image upload
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
+gem 'jquery-rails'
+gem 'popper_js', '~> 1.14.5'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+
 
 group :production do
   gem "pg"

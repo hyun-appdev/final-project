@@ -8,7 +8,7 @@ class IndexController < ApplicationController
     #@reviews = Review.all.sort_by(&:count_votes).page(params[:page]).per(10)
     @reviews = Review.all.page(params[:page]).per(10)
     
-    render("/home.html.erb")
+    render("/index.html.erb")
   end
     
 end
