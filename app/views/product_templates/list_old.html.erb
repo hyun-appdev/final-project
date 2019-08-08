@@ -1,0 +1,83 @@
+<a href="/"><h1>Rezen</h1></a>
+<h1>
+  Product list
+</h1>
+
+<a href="/new_product_form">
+  Add a new product
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Category
+    </th>
+
+    <th>
+      Company
+    </th>
+
+    <th>
+      Product Name
+    </th>
+    
+    <th>
+      Model Name
+    </th>
+    
+    <th>
+      Model Number
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @products.each do |product| %>
+  <tr>
+    <td>
+      <%= product.id %>
+    </td>
+
+    <td>
+      <%= product.category %>
+    </td>
+
+    <td>
+      <%= product.company_id %>
+    </td>
+
+    <td>
+      <%= product.product_name %>
+    </td>
+    
+    <td>
+      <%= product.modelname %>
+    </td>
+    
+    <td>
+      <%= product.model_number %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(product.created_at) %> ago
+    </td>
+
+    <td>
+      <a href="/products/<%= product.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

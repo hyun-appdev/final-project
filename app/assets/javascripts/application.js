@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery3
+//= require rails-ujs
 //= require bootstrap
 //= require popper
 //= require theme
+//= require bootstrap-select

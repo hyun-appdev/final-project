@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
 
   def details
     @product = Product.where({ :id => params.fetch("id_to_display") }).first
-
     render("product_templates/details.html.erb")
   end
 

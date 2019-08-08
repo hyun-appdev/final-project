@@ -25,7 +25,7 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.5'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
-
+gem 'bootstrap-select-rails'
 
 
 group :production do
