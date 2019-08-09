@@ -10,9 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery3
+//= require jquery
 //= require rails-ujs
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require popper
 //= require theme
-//= require bootstrap-select
+//= require jquery.min
+//= require js/bootstrap.bundle.min
+//= require js/bootstrap-select
+//= require js/bootstrap-select.min
+//= require jquery.magnific-popup.min
+//= require smooth-scroll.polyfills.min.js
+//= require swiper

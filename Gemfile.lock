@@ -116,10 +116,13 @@ GEM
     bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
+    bootstrap (4.3.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootstrap-select-rails (1.13.8)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.28.0)
@@ -221,6 +224,7 @@ GEM
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    magnific-popup-rails (1.1.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     meta_request (0.7.2)
@@ -367,6 +371,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.1)
+    swiper-rails (1.0.4)
+      rails (>= 3.1)
     tether-rails (1.4.0)
       rails (>= 3.1)
     thor (0.20.3)
@@ -411,8 +417,8 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
+  bootstrap (~> 4.3.1)
   bootstrap-sass (~> 3.4.1)
-  bootstrap-select-rails
   byebug
   capybara
   carrierwave
@@ -430,6 +436,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   listen (>= 3.0.5, < 3.2)
+  magnific-popup-rails (~> 1.1.0)
   meta_request
   pg
   popper_js (~> 1.14.5)
@@ -447,6 +454,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0f)
   sprockets-rails
   sqlite3
+  swiper-rails
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
