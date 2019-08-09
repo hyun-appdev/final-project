@@ -381,18 +381,13 @@
                   <div class="card-img-overlay-bottom z-index-20">
                     </p>
                   </div>
-                  <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                    <div class="badge badge-transparent badge-pill px-3 py-2"><%= product.modelname %></div><a href="javascript: void();" class="card-fav-icon position-relative z-index-40"> 
-                      <svg class="svg-icon text-white">
-                        <use xlink:href="#heart-1"> </use>
-                      </svg></a>
-                  </div>
+                  
                 </div>
                 <div class="card-body">
-                  <p class="text-sm text-muted text-uppercase mb-1"><a href="#" class="text-dark"><%= product.product_name %></a></p>
+                  <p class="text-sm text-muted text-uppercase mb-1"><a href="/products/<%= product.id %>" class="text-dark"><%= product.product_name %></a></p>
                   <p class="text-sm text-muted mb-3"> Cupidatat excepteur non dolore laborum et quis nostrud veniam dolore deserunt. Pariatur dolore ut in elit id nulla. Irur...</p>
-                  <p class="text-sm text-muted text-uppercase mb-1">By <a href="#" class="text-dark"><%= product.category %></a></p>
-                  <p class="text-sm mb-0"><a href="#" class="mr-1">Restaurant,</a><a href="#" class="mr-1">Contemporary</a>
+                  <p class="text-sm text-muted text-uppercase mb-1">By <a href="#" class="text-dark"><%= product.company_id %></a></p>
+                  <p class="text-sm mb-0"><a href="#" class="mr-1"><%= product.category %></a>
                   <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i>
                   </p>
                 </div>

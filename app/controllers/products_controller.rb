@@ -10,7 +10,8 @@ class ProductsController < ApplicationController
   end
 
   def details
-    @product = Product.where({ :id => params.fetch("id_to_display") }).first
+    #@product = Product.where({ :id => params.fetch("product_id") }).first
+    @reviews = Review.where({ :product_id => params.fetch("id_to_display")})
     render("product_templates/details.html.erb")
   end
 
