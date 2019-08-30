@@ -1,0 +1,27 @@
+<h1>
+  Edit company #<%= @company.id %>
+</h1>
+
+<hr>
+
+<%= render("company_templates/validation_failures.html.erb") %>
+
+<form action="/update_company_record/<%= @company.id %>" method="post">
+  <div>
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" value="<%= @company.name %>">
+  </div>
+
+  <button>
+    Update company
+  </button>
+</form>
+
+<hr>
+
+<a href="/companies">
+  Go back
+</a>

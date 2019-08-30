@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190727184954) do
+ActiveRecord::Schema.define(version: 20190825221017) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -43,11 +43,30 @@ ActiveRecord::Schema.define(version: 20190727184954) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "review_id"
     t.integer "commenter_id"
     t.text "comment"
     t.integer "comment_vote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "company_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,8 +80,14 @@ ActiveRecord::Schema.define(version: 20190727184954) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
-    t.string "category"
     t.integer "company_id"
     t.string "serial_no"
     t.datetime "created_at", null: false
@@ -70,6 +95,7 @@ ActiveRecord::Schema.define(version: 20190727184954) do
     t.string "product_name"
     t.string "model_number"
     t.string "modelname"
+    t.integer "category"
   end
 
   create_table "reviews", force: :cascade do |t|

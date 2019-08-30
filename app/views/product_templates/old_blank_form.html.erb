@@ -1,0 +1,67 @@
+<h1>
+  Add a new product
+</h1>
+
+<hr>
+
+<%= render("product_templates/validation_failures.html.erb") %>
+
+<form action="/insert_product_record" method="post">
+  <div>
+    <label for="category">
+      Category
+    </label>
+
+    <input type="text" id="category" name="category" value="<%= @product.category %>">
+  </div>
+
+  <div>
+    <label for="company_id">
+      Company
+    </label>
+
+    <input type="text" id="company_id" name="company_id" value="<%= @product.company_id %>">
+  </div>
+  
+  <div>
+    <label for="product_name">
+      Product Name
+    </label>
+
+    <input type="text" id="product_name" name="product_name" value="<%= @product.product_name %>">
+  </div>
+  
+  <div>
+    <label for="modelname">
+      Model Name
+    </label>
+
+    <input type="text" id="modelname" name="modelname" value="<%= @product.modelname %>">
+  </div>
+  
+  <div>
+    <label for="model_number">
+      Model Number
+    </label>
+
+    <input type="text" id="model_number" name="model_number" value="<%= @product.model_number %>">
+  </div>
+
+  <div>
+    <label for="serial_no">
+      Serial Number
+    </label>
+
+    <input type="text" id="serial_no" name="serial_no" value="<%= @product.serial_no %>">
+  </div>
+
+  <button>
+    Create product
+  </button>
+</form>
+
+<hr>
+
+<a href="/products">
+  Go back
+</a>

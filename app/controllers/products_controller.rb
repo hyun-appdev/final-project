@@ -5,13 +5,14 @@ class ProductsController < ApplicationController
   end
   
   def select_product
+    @q = Product.ransack(params[:q])
     @products = Product.all
     render("product_templates/select.html.erb")
   end
 
   def details
-    #@product = Product.where({ :id => params.fetch("product_id") }).first
-    @reviews = Review.where({ :product_id => params.fetch("id_to_display")})
+    @product = Product.where({ :id => params.fetch("product_id") }).first
+    @reviews = Review.where({ :product_id => params.fetch("product_id")})
     render("product_templates/details.html.erb")
   end
 

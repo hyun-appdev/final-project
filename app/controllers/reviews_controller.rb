@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
   
   def list
     @reviews = Review.all
-    render("review_templates/list.html.erb")
+    render("review_templates/review_list_product.html.erb")
   end
 
   def details
@@ -36,25 +36,25 @@ class ReviewsController < ApplicationController
     @product_id = params.fetch("product_id")
     @product = Product.where({:id => @product_id}).first
     @review = Review.new
+    session[:product_id] = @product_id
     render("review_templates/blank_form.html.erb")
   end
 
   def save_new_info
     @review = Review.new
     @review.compensation_id = 0
-    @review.review_content = params.fetch("review_content")
-    @review.product_id = params.fetch("product_id")
-    @review.ratings = params.fetch("ratings")
-    @review.proof = params.fetch(:proof)
+    @review.review_content = params[:review][:review_content]
+    #@review.review_content = params.fetch("review_content")
+    @review.product_id = session[:product_id]
+    @review.ratings = params[:review][:ratings]
+    @review.proof = params[:review][:proof]
 
-    
     if current_user
       @review.reviewer_id = current_user.id   
     else
       @review.reviewer_id = 0
     end
     
-
     if @review.valid?
       @review.save
       render("review_templates/new_review_confirm.html.erb")
@@ -106,4 +106,6 @@ class ReviewsController < ApplicationController
   def save_complete
     render("review_templates/new_review_confirm.html.erb")
   end
+  
+  
 end

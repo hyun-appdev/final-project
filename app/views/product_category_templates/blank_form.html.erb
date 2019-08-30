@@ -1,0 +1,35 @@
+<h1>
+  Add a new product category
+</h1>
+
+<hr>
+
+<%= render("product_category_templates/validation_failures.html.erb") %>
+
+<form action="/insert_product_category_record" method="post">
+  <div>
+    <label for="product_id">
+      Product
+    </label>
+
+    <input type="text" id="product_id" name="product_id" value="<%= @product_category.product_id %>">
+  </div>
+
+  <div>
+    <label for="category_id">
+      Category
+    </label>
+
+    <input type="text" id="category_id" name="category_id" value="<%= @product_category.category_id %>">
+  </div>
+
+  <button>
+    Create product category
+  </button>
+</form>
+
+<hr>
+
+<a href="/product_categories">
+  Go back
+</a>

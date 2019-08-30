@@ -1,0 +1,77 @@
+<h1>Search Results</h1>
+
+<h1>
+  Review list
+</h1>
+
+<a href="/new_review_form">
+  Add a new review
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Category
+    </th>
+
+    <th>
+      Product Name
+    </th>
+    
+    <th>
+      Model Name
+    </th>
+    
+    <th>
+      Model Number
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @products.each do |product| %>
+  <tr>
+    <td>
+      <%= product.id %>
+    </td>
+
+    <td>
+      <%= product.category %>
+    </td>
+
+    <td>
+      <%= product.product_name %>
+    </td>
+    
+    <td>
+      <%= product.modelname %>
+    </td>
+    
+    <td>
+      <%= product.model_number %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(product.created_at) %> ago
+    </td>
+
+    
+    <td>
+      <a href="/reviews_search_results/<%= product.id %>">
+        Select
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

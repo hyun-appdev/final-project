@@ -1,0 +1,66 @@
+<h1>
+  Company product list
+</h1>
+
+<a href="/new_company_product_form">
+  Add a new company product
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Product
+    </th>
+
+    <th>
+      Company
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @company_products.each do |company_product| %>
+  <tr>
+    <td>
+      <%= company_product.id %>
+    </td>
+
+    <td>
+      <%= company_product.product_id %>
+    </td>
+
+    <td>
+      <%= company_product.company_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(company_product.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(company_product.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/company_products/<%= company_product.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

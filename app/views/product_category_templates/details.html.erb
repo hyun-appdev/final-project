@@ -1,0 +1,54 @@
+<h1>
+  Product category #<%= @product_category.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/product_categories">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_product_category_form/<%= @product_category.id %>">
+      Edit product category
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_product_category/<%= @product_category.id %>">
+      Delete product category
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Product
+  </dt>
+  <dd>
+    <%= @product_category.product_id %>
+  </dd>
+
+  <dt>
+    Category
+  </dt>
+  <dd>
+    <%= @product_category.category_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@product_category.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@product_category.updated_at) %> ago
+  </dd>
+</dl>
+

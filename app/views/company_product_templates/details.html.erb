@@ -1,0 +1,54 @@
+<h1>
+  Company product #<%= @company_product.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/company_products">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_company_product_form/<%= @company_product.id %>">
+      Edit company product
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_company_product/<%= @company_product.id %>">
+      Delete company product
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Product
+  </dt>
+  <dd>
+    <%= @company_product.product_id %>
+  </dd>
+
+  <dt>
+    Company
+  </dt>
+  <dd>
+    <%= @company_product.company_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@company_product.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@company_product.updated_at) %> ago
+  </dd>
+</dl>
+

@@ -10,5 +10,9 @@ class IndexController < ApplicationController
     
     render("/index.html.erb")
   end
+  
+  def display_criteria
+    render("/criteria.html.erb")
+  end
     
 end

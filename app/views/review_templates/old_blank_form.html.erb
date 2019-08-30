@@ -1,0 +1,65 @@
+<h1>
+  Add a new review
+</h1>
+
+<hr>
+
+<%= render("review_templates/validation_failures.html.erb") %>
+
+<h2> Product </h2>
+<div> <%= @product.product_name %></div>
+<div> <%= @product.modelname %></div>
+<br>
+<form action="/insert_review_record" method="post" enctype="multipart/form-data">
+  
+  <div>
+    <input type="hidden" name="product_id" value="<%=@product_id%>">
+  </div>
+
+  <div>
+    <label for="ratings">
+      Overall, are you satisfied or dissatisfied with <%= @product.product_name %>?
+    </label>
+
+  <br>
+  
+  <div>
+    <%= label_tag(:one_label, "Very dissatisfied") %>
+    <%= radio_button_tag(:ratings, "1") %>
+    &nbsp;
+    <%= label_tag(:two_label, "Dissatisfied") %>
+    <%= radio_button_tag(:ratings, "2") %>
+    &nbsp;
+    <%= label_tag(:three_label, "Neither satisfied nor dissatisfied") %>
+    <%= radio_button_tag(:ratings, "3") %>
+    &nbsp;
+    <%= label_tag(:four_label, "Satisfied") %>
+    <%= radio_button_tag(:ratings, "4") %>
+    &nbsp;
+    <%= label_tag(:five_label, "Very satisfied") %>
+    <%= radio_button_tag(:ratings, "5") %>
+    
+  </div>
+
+  <div>
+    <label for="review_content">
+      What do you like or dislike about <%= @product.product_name %>?
+      The response has to be more than 20 words in order to be qualified for compensation.
+    </label>
+    <input type="text" id="review_content" name="review_content" value="<%= @review.review_content %>" minlength="200" maxlength="5000">
+  </div>
+
+  <div>
+    <input type="file" id="proof" name="proof" class="form-control">
+  </div>
+
+  <button>
+    Create review
+  </button>
+</form>
+
+<hr>
+
+<a href="/reviews">
+  Go back
+</a>
