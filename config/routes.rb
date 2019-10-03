@@ -126,7 +126,9 @@ Rails.application.routes.draw do
   match("/insert_review_record", { :controller => "reviews", :action => "save_new_info", :via => "post" })
 
   # READ
+  match("/reviews_products", { :controller => "reviews", :action => "select_product", :via => "get" })
   match("/reviews", { :controller => "reviews", :action => "list", :via => "get" })
+  match("/reviews_product/:product_id", { :controller => "reviews", :action => "reviews_for_product", :via => "get" })
   match("/reviews/:id_to_display", { :controller => "reviews", :action => "details", :via => "get" })
 
   # UPDATE

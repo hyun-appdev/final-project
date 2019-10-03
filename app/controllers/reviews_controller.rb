@@ -97,6 +97,18 @@ class ReviewsController < ApplicationController
     redirect_to("/reviews", { :notice => "Review deleted successfully." })
   end
   
+  def select_product
+    @q = Product.ransack(params[:q])
+    @products = Product.all
+    render("review_templates/select.html.erb")
+  end
+  
+  def reviews_for_product
+    @product = Product.where({ :id => params.fetch("product_id")}).first
+    @reviews = Review.where({ :product_id => params.fetch("product_id")})
+    render("review_templates/review_list_product.html.erb")
+  end
+  
   def search_results
     @product = Product.where({ :id => params.fetch("product_id")}).first
     @reviews = Review.where({ :product_id => params.fetch("product_id")})
