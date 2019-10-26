@@ -28,11 +28,11 @@ class Review < ApplicationRecord
   
   belongs_to :product, :required => false
   
+  mount_uploader :proof, ProofUploader
+  
   def count_votes
     votes = Vote.where({ :review_id => self.id})
     return votes.sum(:upvote) - votes.sum(:downvote)
   end
-  
-  mount_uploader :proof, ProofUploader
   
 end

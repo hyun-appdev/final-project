@@ -11,6 +11,11 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
     render("review_templates/review_list_product.html.erb")
   end
+  
+  def list_all
+    @reviews = Review.all
+    render("review_templates/review_list_all.html.erb")
+  end
 
   def details
     @review = Review.where({ :id => params.fetch("id_to_display") }).first
@@ -91,9 +96,7 @@ class ReviewsController < ApplicationController
 
   def remove_row
     @review = Review.where({ :id => params.fetch("id_to_remove") }).first
-
     @review.destroy
-
     redirect_to("/reviews", { :notice => "Review deleted successfully." })
   end
   

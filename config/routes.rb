@@ -127,7 +127,7 @@ Rails.application.routes.draw do
 
   # READ
   match("/reviews_products", { :controller => "reviews", :action => "select_product", :via => "get" })
-  match("/reviews", { :controller => "reviews", :action => "list", :via => "get" })
+  match("/reviews", { :controller => "reviews", :action => "list_all", :via => "get" })
   match("/reviews_product/:product_id", { :controller => "reviews", :action => "reviews_for_product", :via => "get" })
   match("/reviews/:id_to_display", { :controller => "reviews", :action => "details", :via => "get" })
 

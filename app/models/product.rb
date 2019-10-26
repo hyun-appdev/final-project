@@ -17,4 +17,14 @@ class Product < ApplicationRecord
   
   has_many :reviews
   
+  def self.find_product_name_by_product_id(product_id)
+    @product = Product.where({ :id => product_id }).first
+    return @product.product_name
+  end
+  
+  def self.find_company_id_by_product_id(product_id)
+    @product = Product.where({ :id => product_id }).first
+    return @product.company_id
+  end
+      
 end
