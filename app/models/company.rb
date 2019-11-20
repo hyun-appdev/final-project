@@ -13,8 +13,8 @@ class Company < ApplicationRecord
     has_many :company_products, :dependent => :nullify
     
     def self.find_company_name_by_id(company_id)
-        @company = Company.where({ :id => company_id }).first
-        return @company.name 
+        company = Company.where({ :id => company_id }).first
+        return company.name 
     end
 
 end
